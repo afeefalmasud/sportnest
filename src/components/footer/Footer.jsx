@@ -6,7 +6,7 @@ import { HiOutlineEnvelope, HiOutlineMapPin } from "react-icons/hi2";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#040C13] text-[#8E9AA4] border-t border-white/5">
+    <footer className="bg-[#030712] text-[#8E9AA4] border-t border-white/5">
       <div className="container mx-auto px-6 md:px-0 py-16">
         <div className="flex  justify-center text-center lg:text-start lg:justify-between items-center lg:items-start flex-col lg:flex-row space-y-4">
           

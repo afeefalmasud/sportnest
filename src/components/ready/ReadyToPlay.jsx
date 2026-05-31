@@ -3,11 +3,10 @@ import { FiUsers } from "react-icons/fi";
 
 const ReadyToPlay = () => {
   return (
-    <section className="bg-[#030d16] py-24 px-4">
+    <section className="bg-[#040C13] py-24 px-4">
       <div className="container mx-auto">
         <div className="relative rounded-3xl border-2 border-white/10 overflow-hidden">
           
-          {/* Background Glow */}
           <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(34,197,94,0.15),transparent_60%)]"></div>
 
           <div className="relative flex flex-col items-center text-center py-20 px-6">

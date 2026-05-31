@@ -29,9 +29,9 @@ const features = [
 
 const WhySportNest = () => {
   return (
-    <section className="bg-[#030d16] py-24 px-4">
+    <section className="bg-[#040C13] py-24 px-4">
       <div className="container mx-auto">
-        {/* Heading */}
+
         <div className="text-center mb-16">
           <p className="text-green-400 text-sm font-medium mb-3">
             Why SportNest
@@ -47,12 +47,11 @@ const WhySportNest = () => {
           </p>
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-[#07131f]/80 border-2 border-white/10 rounded-3xl p-6 hover:border-green-500/30 transition"
+              className="bg-[#111920]/55 border-2 border-white/10 rounded-3xl p-6 hover:border-green-500/30 transition"
             >
                 <div className="w-12 h-12 rounded-2xl bg-green-500 flex items-center justify-center text-black text-lg mb-6 shadow-[0_0_25px_rgba(34,197,94,0.5)]">
                     {feature.icon}
