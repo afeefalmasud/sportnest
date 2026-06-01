@@ -29,28 +29,28 @@ export default function Footer() {
             <div className="flex items-center gap-3 mt-6">
               <Link
                 href="#"
-                className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center hover:border-[#51D75E] hover:text-[#51D75E] transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-white/10 bg-white/3 flex items-center justify-center hover:border-[#51D75E] hover:text-[#51D75E] transition-all duration-300"
               >
                 <FaXTwitter size={14} />
               </Link>
 
               <Link
                 href="#"
-                className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center hover:border-[#51D75E] hover:text-[#51D75E] transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-white/10 bg-white/3 flex items-center justify-center hover:border-[#51D75E] hover:text-[#51D75E] transition-all duration-300"
               >
                 <FaInstagram size={14} />
               </Link>
 
               <Link
                 href="#"
-                className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center hover:border-[#51D75E] hover:text-[#51D75E] transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-white/10 bg-white/3 flex items-center justify-center hover:border-[#51D75E] hover:text-[#51D75E] transition-all duration-300"
               >
                 <FaFacebookF size={14} />
               </Link>
 
               <Link
                 href="#"
-                className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center hover:border-[#51D75E] hover:text-[#51D75E] transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-white/10 bg-white/3 flex items-center justify-center hover:border-[#51D75E] hover:text-[#51D75E] transition-all duration-300"
               >
                 <FaYoutube size={14} />
               </Link>

@@ -51,7 +51,7 @@ const WhySportNest = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-[#111920]/55 border-2 border-white/10 rounded-3xl p-6 hover:border-green-500/30 hover:-translate-y-1.5 transition"
+              className="bg-[#111920]/55 border-2 border-white/10 rounded-3xl p-6 hover:border-green-500/30 hover:scale-105 transition-all duration-200"
             >
                 <div className="w-12 h-12 rounded-2xl bg-green-500 flex items-center justify-center text-black text-lg mb-6 shadow-[0_0_25px_rgba(34,197,94,0.5)]">
                     {feature.icon}
