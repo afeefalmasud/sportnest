@@ -1,11 +1,11 @@
 
 const categories = [
-  { id: 'tennis', name: 'Tennis', venues: 1, icon: '🎾' },
-  { id: 'swimming', name: 'Swimming', venues: 1, icon: '🏊' },
-  { id: 'football', name: 'Football', venues: 1, icon: '⚽' },
-  { id: 'basketball', name: 'Basketball', venues: 1, icon: '🏀' },
-  { id: 'badminton', name: 'Badminton', venues: 1, icon: '🏸' },
-  { id: 'cricket', name: 'Cricket', venues: 1, icon: '🏏' },
+  { id: 'tennis', name: 'Tennis', icon: '🎾' },
+  { id: 'swimming', name: 'Swimming', icon: '🏊' },
+  { id: 'football', name: 'Football', icon: '⚽' },
+  { id: 'basketball', name: 'Basketball', icon: '🏀' },
+  { id: 'badminton', name: 'Badminton', icon: '🏸' },
+  { id: 'cricket', name: 'Cricket', icon: '🏏' },
 ];
 
 export default function Categories() {
@@ -40,9 +40,6 @@ export default function Categories() {
                     <h3 className="text-[#EFF6FB] font-medium text-sm text-center mb-1">
                         {category.name}
                     </h3>
-                    <span className="text-[#8E9AA4] text-xs font-light">
-                        {category.venues} {category.venues === 1 ? 'venue' : 'venues'}
-                    </span>
                 </div>
                 ))}
             </div>
