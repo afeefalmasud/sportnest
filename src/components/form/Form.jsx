@@ -10,11 +10,20 @@ import {
 import { Bounce, toast, ToastContainer } from "react-toastify";
 
 const FormAdd = () => {
-    const onSubmit = (e) => {
+    const onSubmit = async(e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const addFacility = Object.fromEntries(formData.entries());
         console.log(addFacility);
+        const res = await fetch('http://localhost:5000/facility',{
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addFacility)
+        })
+        const data = await res.json();
+
         toast.success('Facility Added', {
             position: "top-center",
             autoClose: 2000,
@@ -37,7 +46,7 @@ const FormAdd = () => {
                 Tell players what makes your venue special.
             </p>
             <div className="mt-8 space-y-6">
-                <TextField name="name">
+                <TextField isRequired  name="name">
                 <Label className="text-[#EFF6FB] mb-2">
                     Facility name
                 </Label>
@@ -47,7 +56,7 @@ const FormAdd = () => {
                 />
                 </TextField>
                 <div className="grid gap-6 md:grid-cols-2">
-                <TextField name="sport">
+                <TextField isRequired  name="sport">
                     <Label className="text-[#EFF6FB] mb-2">
                     Sport type
                     </Label>
@@ -56,7 +65,7 @@ const FormAdd = () => {
                     className="w-full bg-[#0F171D] text-[#EFF6FB] border-2 border-[#eff6fb42]"
                     />
                 </TextField>
-                <TextField name="location">
+                <TextField isRequired  name="location">
                     <Label className="text-[#EFF6FB] mb-2">
                     Location
                     </Label>
@@ -67,20 +76,20 @@ const FormAdd = () => {
                 </TextField>
                 </div>
                 <div className="grid gap-6 md:grid-cols-2">
-                <TextField name="price">
+                <TextField isRequired  name="price">
                     <Label className="text-[#EFF6FB] mb-2">
                     Price per hour (USD)
                     </Label>
                     <Input type="number" placeholder="$ 45" className="w-full bg-[#0F171D] text-[#EFF6FB] border-2 border-[#eff6fb42]"/>
                 </TextField>
-                <TextField name="capacity">
+                <TextField isRequired  name="capacity">
                     <Label className="text-[#EFF6FB] mb-2">
                     Capacity
                     </Label>
                     <Input type="number" placeholder="20" className="w-full bg-[#0F171D] text-[#EFF6FB] border-2 border-[#eff6fb42]"/>
                 </TextField>
                 </div>
-                <TextField name="image">
+                <TextField isRequired  name="image">
                 <Label className="text-[#EFF6FB] mb-2">
                     Image URL
                 </Label>
@@ -90,7 +99,7 @@ const FormAdd = () => {
                     className="w-full bg-[#0F171D] text-[#EFF6FB] border-2 border-[#eff6fb42]"
                 />
                 </TextField>
-                <TextField name="description">
+                <TextField isRequired  name="description">
                 <Label className="text-[#EFF6FB] mb-2">
                     Description
                 </Label>
