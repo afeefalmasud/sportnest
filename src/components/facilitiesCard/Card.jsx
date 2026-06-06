@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { IoLocationOutline } from "react-icons/io5";
 
 const FacilityCard = ({ facility }) => {
@@ -29,10 +30,12 @@ const FacilityCard = ({ facility }) => {
               Capacity: {facility.capacity}
             </p>
           </div>
-
-          <button className="bg-green-500 hover:bg-green-400 text-black font-medium px-4 py-2 rounded-lg">
-            Book Now
-          </button>
+          <Link href={`/facilities/${facility._id}`}>
+            <button  className="bg-green-500 hover:bg-green-400 text-black font-medium px-4 py-2 rounded-lg">
+                Book Now
+            </button>
+          </Link>  
+          
         </div>
       </div>
     </div>

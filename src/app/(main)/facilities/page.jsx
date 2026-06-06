@@ -1,5 +1,10 @@
 import FacilityCard from "@/components/facilitiesCard/Card";
+import { Space_Grotesk } from "next/font/google";
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 const facilitespage = async() => {
   const res = await fetch('http://localhost:5000/facility');
@@ -8,7 +13,7 @@ const facilitespage = async() => {
     <div className="min-h-screen bg-[#040C13] px-5 py-30">
       <div className="container mx-auto">
         <div className="mb-10">
-          <h2 className="text-5xl font-bold text-[#EFF6FB]">All facilities</h2>
+          <h2 className={`${spaceGrotesk.className} text-5xl font-bold text-[#EFF6FB]`}>All facilities</h2>
           <p className="mt-2 text-[#8E9AA4]">Search across 6+ premium venues curated for serious players.</p>
         </div>
         <div>

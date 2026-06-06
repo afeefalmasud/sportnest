@@ -1,11 +1,17 @@
 import FormAdd from "@/components/form/Form";
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 const AddPage = () => {
   return (
     <div className="min-h-screen bg-[#040C13] px-5 py-30">
       <div className="container mx-auto">
         <div className="mb-10">
-          <h1 className="text-5xl font-bold text-[#EFF6FB]">
+          <h1 className={`${spaceGrotesk.className} text-5xl font-bold text-[#EFF6FB]`}>
             Add a new facility
           </h1>
           <p className="mt-2 text-[#8E9AA4]">
