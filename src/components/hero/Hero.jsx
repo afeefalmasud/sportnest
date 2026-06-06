@@ -1,5 +1,13 @@
+import Link from "next/link";
 import { FaArrowRight, FaStar } from "react-icons/fa";
 import { IoShieldCheckmark } from "react-icons/io5";
+import { Space_Grotesk } from "next/font/google";
+import HeroExploreButton from "../heroButton/ExploreButton";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 const HeroSection = () => {
   return (
@@ -15,6 +23,10 @@ const HeroSection = () => {
         items-center
         justify-center
         overflow-hidden
+        pt-50 
+        pb-20
+        md:pt-0 
+        md:pb-0
       "
     >
    
@@ -28,7 +40,7 @@ const HeroSection = () => {
           Trusted by 10,000+ athletes
         </div>
 
-        <h1 className="max-w-5xl mx-auto text-5xl md:text-7xl font-bold text-white">
+        <h1 className={`${spaceGrotesk.className} max-w-5xl mx-auto text-5xl md:text-7xl font-bold text-[#EFF6FB]`}>
           Book Your Favorite{" "}
           <span className="text-green-400">
             Sports Facility
@@ -43,14 +55,12 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-          <button className="flex items-center gap-2 px-7 py-3 rounded-xl bg-green-500 text-black font-semibold hover:bg-green-400 transition cursor-pointer">
-            Explore Facilities
-            <FaArrowRight />
-          </button>
-
-          <button className="px-7 py-3 rounded-xl border-2 border-gray-700 bg-white/5 text-white hover:bg-white/10 hover:border-green-400 hover:text-green-200 transition cursor-pointer">
-            List Your Venue
-          </button>
+          <HeroExploreButton></HeroExploreButton>
+          <Link href='/add'>
+            <button className="px-7 py-3 rounded-xl border-2 border-gray-700 bg-white/5 text-white hover:bg-white/10 hover:border-green-400 hover:text-green-200 transition cursor-pointer">
+              List Your Venue
+            </button>
+          </Link>
         </div>
 
         <div className="flex flex-wrap justify-center gap-16 mt-14">

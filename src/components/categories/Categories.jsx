@@ -1,3 +1,9 @@
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 const categories = [
   { id: 'tennis', name: 'Tennis', icon: '🎾' },
@@ -10,13 +16,13 @@ const categories = [
 
 export default function Categories() {
   return (
-    <section className="bg-[#040C13] text-white py-16 px-4">
+    <section className="bg-[#040C13] text-white py-30 px-5">
         <div className='container mx-auto flex flex-col justify-center items-center'>
             <div className="text-center mb-16">
                 <p className="text-green-400 text-sm font-medium mb-3">
                     Categories
                 </p>
-                <h2 className="text-white text-4xl font-bold mb-4">
+                <h2 className={`${spaceGrotesk.className} text-2xl md:text-4xl mb-4 font-bold text-[#EFF6FB]`}>
                     Popular sports categories
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">

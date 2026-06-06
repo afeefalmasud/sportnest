@@ -1,4 +1,10 @@
 import { FaBolt, FaShieldAlt, FaClock, FaTrophy } from "react-icons/fa";
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 const features = [
   {
@@ -29,7 +35,7 @@ const features = [
 
 const WhySportNest = () => {
   return (
-    <section className="bg-[#040C13] py-24 px-4">
+    <section className="bg-[#040C13] py-30 px-5">
       <div className="container mx-auto">
 
         <div className="text-center mb-16">
@@ -37,7 +43,7 @@ const WhySportNest = () => {
             Why SportNest
           </p>
 
-          <h2 className="text-white text-4xl font-bold mb-4">
+          <h2 className={`${spaceGrotesk.className} text-2xl md:text-4xl mb-4 font-bold text-[#EFF6FB]`}>
             Built for athletes who hate waiting
           </h2>
 
