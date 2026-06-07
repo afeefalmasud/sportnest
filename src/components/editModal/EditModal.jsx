@@ -9,7 +9,6 @@ const EditModal = ({facility}) => {
         console.log(e.target);
         const formData = new FormData(e.currentTarget);
         const editFacility = Object.fromEntries(formData.entries());
-        console.log(editFacility)
         const res = await fetch(`http://localhost:5000/facility/${facility._id}`,{
             method: 'PATCH',
             headers: {
@@ -19,7 +18,7 @@ const EditModal = ({facility}) => {
         })
         
         const data = await res.json();
-        console.log(data);
+        
         if(data.modifiedCount > 0){
             toast.success('Facility Edited', {
                 position: "top-center",

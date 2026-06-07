@@ -3,6 +3,7 @@ import { MdEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoLocationOutline } from "react-icons/io5";
 import EditModal from "../editModal/EditModal";
+import ManageDelete from "../manageDelete/ManageDelete";
 
 const ManageCard = ({facility}) => {
   return (
@@ -41,9 +42,7 @@ const ManageCard = ({facility}) => {
         </div>
         <div className="flex items-center gap-2">
             <EditModal facility={facility}></EditModal>
-            <button className="flex h-10 w-10 items-center justify-center rounded-xl border border-red-900 text-red-500 transition hover:bg-red-950">
-                <RiDeleteBin6Line size={17} />
-            </button>
+            <ManageDelete facility={facility}></ManageDelete>
         </div>
     </div>
   )
