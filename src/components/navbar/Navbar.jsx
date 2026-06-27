@@ -26,14 +26,14 @@ const Navbar = () => {
             
             <div className="flex items-center gap-6">
               <Link 
-                href="/login" 
+                href="/signIn" 
                 className="text-[#EFF6FB]/80 hover:text-[#EFF6FB] transition-colors text-[15px] font-medium"
               >
                 Login
               </Link>
 
               <Link
-                href="/register"
+                href="/signUp"
                 className="flex items-center gap-2 px-7 py-3 rounded-full bg-green-500 text-black font-semibold hover:bg-green-400 transition cursor-pointer"
               >
                 Get Started
