@@ -1,6 +1,7 @@
 import Image from "next/image"
 import NavLink from "./NavLink"
 import Link from "next/link"
+import NavUser from "./NavUser"
 
 const Navbar = () => {
   return (
@@ -25,19 +26,7 @@ const Navbar = () => {
             </div>
             
             <div className="flex items-center gap-6">
-              <Link 
-                href="/signIn" 
-                className="text-[#EFF6FB]/80 hover:text-[#EFF6FB] transition-colors text-[15px] font-medium"
-              >
-                Login
-              </Link>
-
-              <Link
-                href="/signUp"
-                className="flex items-center gap-2 px-7 py-3 rounded-full bg-green-500 text-black font-semibold hover:bg-green-400 transition cursor-pointer"
-              >
-                Get Started
-              </Link>
+               <NavUser></NavUser>
             </div>
         </div>
     </div>

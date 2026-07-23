@@ -1,33 +1,21 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import {
-  Button,
-  Description,
-  FieldError,
-  Form,
-  Input,
-  Label,
-  TextField,
-} from "@heroui/react";
+import { Button, Form } from "@heroui/react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { Space_Grotesk } from "next/font/google";
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import { redirect } from "next/navigation";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
 });
 
 const SignInForm = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const callbackUrl = searchParams.get("callbackUrl");
+  
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -35,41 +23,41 @@ const SignInForm = () => {
     const formData = new FormData(e.target);
     const userData = Object.fromEntries(formData.entries());
 
-    const { error } = await authClient.signIn.email({
+    const { data, error } = await authClient.signIn.email({
       email: userData.email,
       password: userData.password,
     });
-
+    if(data){
+      redirect('/')
+    }
     if (error) {
       toast.error("Invalid email or password", {
         position: "top-center",
+        theme: "dark",
         autoClose: 1500,
         transition: Bounce,
       });
     } else {
       toast.success("Welcome back!", {
         position: "top-center",
+        theme: "dark",
         autoClose: 1500,
         transition: Bounce,
-        onClose: () => {
-          router.push(callbackUrl || "/");
-        },
+        onClose: () => router.push(callbackUrl || "/"),
       });
     }
   };
 
   const handleGoogle = async () => {
-    const data = await authClient.signIn.social({
+    await authClient.signIn.social({
       provider: "google",
     });
-
-    console.log(data);
   };
 
   return (
     <div className="min-h-screen bg-[#040C13] flex items-center justify-center px-5 py-24">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.12),transparent_60%)]" />
+      {/* Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.12),transparent_60%)]"></div>
 
       <div className="relative z-10 w-full max-w-md">
         {/* Badge */}
@@ -83,17 +71,18 @@ const SignInForm = () => {
 
         {/* Card */}
 
-        <div className="bg-[#0a151fdc] backdrop-blur-md border border-green-500/20 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-[#0a151fdc] border border-green-500/20 backdrop-blur-md rounded-3xl p-8 shadow-2xl">
           {/* Logo */}
 
           <div className="text-center mb-8">
             <h1
               className={`${spaceGrotesk.className} text-4xl font-bold text-[#EFF6FB]`}
             >
-              Sport<span className="text-green-400">Nest</span>
+              Sport
+              <span className="text-green-400">Nest</span>
             </h1>
 
-            <p className="text-[#8E9AA4] mt-3">
+            <p className="mt-3 text-[#8E9AA4]">
               Sign in to continue booking facilities
             </p>
           </div>
@@ -101,71 +90,65 @@ const SignInForm = () => {
           <Form className="flex flex-col gap-5" onSubmit={onSubmit}>
             {/* Email */}
 
-            <TextField
-              isRequired
-              name="email"
-              type="email"
-              validate={(value) => {
-                if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-                  return "Please enter a valid email address";
-                }
-                return null;
-              }}
-            >
-              <Label className="text-[#EFF6FB]">Email</Label>
+            <div className="space-y-2">
+              <label className="text-[#EFF6FB] text-sm font-medium">
+                Email
+              </label>
 
-              <Input
+              <input
+                type="email"
+                name="email"
+                required
                 placeholder="john@example.com"
-                classNames={{
-                  input: "text-white",
-                  inputWrapper:
-                    "bg-[#040C13] border border-green-500/20 hover:border-green-400",
-                }}
+                className="
+                w-full
+                rounded-xl
+                border
+                border-green-500/20
+                bg-[#040C13]
+                px-4
+                py-3
+                text-[#EFF6FB]
+                placeholder:text-[#8E9AA4]
+                outline-none
+                transition
+                focus:border-green-400
+                "
               />
-
-              <FieldError />
-            </TextField>
+            </div>
 
             {/* Password */}
 
-            <TextField
-              isRequired
-              name="password"
-              type="password"
-              minLength={8}
-              validate={(value) => {
-                if (value.length < 8) {
-                  return "Password must be at least 8 characters";
-                }
+            <div className="space-y-2">
+              <label className="text-[#EFF6FB] text-sm font-medium">
+                Password
+              </label>
 
-                if (!/[A-Z]/.test(value)) {
-                  return "Password must contain one uppercase letter";
-                }
-
-                if (!/[0-9]/.test(value)) {
-                  return "Password must contain one number";
-                }
-
-                return null;
-              }}
-            >
-              <Label className="text-[#EFF6FB]">Password</Label>
-
-              <Input
+              <input
+                type="password"
+                name="password"
+                required
                 placeholder="Enter password"
-                classNames={{
-                  input: "text-white",
-                  inputWrapper:
-                    "bg-[#040C13] border border-green-500/20 hover:border-green-400",
-                }}
+                className="
+                w-full
+                rounded-xl
+                border
+                border-green-500/20
+                bg-[#040C13]
+                px-4
+                py-3
+                text-[#EFF6FB]
+                placeholder:text-[#8E9AA4]
+                outline-none
+                transition
+                focus:border-green-400
+                "
               />
 
-              <Description className="text-[#8E9AA4] text-xs">
-                Must contain at least 8 characters, 1 uppercase and 1 number
-              </Description>
-
-              <FieldError />
-            </TextField>
+              <p className="text-xs text-[#8E9AA4]">
+                Must contain at least 8 characters
+              </p>
+            </div>
 
             {/* Sign In */}
 
@@ -187,8 +170,8 @@ const SignInForm = () => {
 
             {/* Divider */}
 
-            <div className="relative py-2">
-              <div className="border-t border-green-500/20" />
+            <div className="relative py-3">
+              <div className="border-t border-green-500/20"></div>
 
               <p
                 className="
@@ -196,10 +179,10 @@ const SignInForm = () => {
                 left-1/2
                 -translate-x-1/2
                 -top-1
-                px-4
                 bg-[#0a151fdc]
-                text-[#8E9AA4]
+                px-4
                 text-sm
+                text-[#8E9AA4]
                 "
               >
                 Or continue with
@@ -212,20 +195,20 @@ const SignInForm = () => {
               type="button"
               onClick={handleGoogle}
               className="
+              w-full
               flex
               items-center
               justify-center
               gap-3
-              w-full
-              py-3
               rounded-xl
               border
               border-green-500/20
               bg-white/5
+              py-3
               text-[#EFF6FB]
-              hover:bg-white/10
-              hover:border-green-400
               transition
+              hover:border-green-400
+              hover:bg-white/10
               cursor-pointer
               "
             >
@@ -241,14 +224,17 @@ const SignInForm = () => {
 
             <Link
               href="/signUp"
-              className="text-green-400 hover:text-green-300 font-medium"
+              className="
+              text-green-400
+              hover:text-green-300
+              font-medium
+              "
             >
               Sign Up
             </Link>
           </div>
         </div>
       </div>
-
       <ToastContainer />
     </div>
   );
@@ -259,7 +245,7 @@ export default function SignInPage() {
     <Suspense
       fallback={
         <div className="min-h-screen bg-[#040C13] flex justify-center items-center">
-          <span className="loading loading-spinner loading-xl text-green-400" />
+          Loading...
         </div>
       }
     >
