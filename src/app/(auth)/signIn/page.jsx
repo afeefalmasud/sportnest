@@ -43,7 +43,6 @@ const SignInForm = () => {
         theme: "dark",
         autoClose: 1500,
         transition: Bounce,
-        onClose: () => router.push(callbackUrl || "/"),
       });
     }
   };

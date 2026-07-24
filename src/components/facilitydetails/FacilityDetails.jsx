@@ -1,5 +1,6 @@
 "use client";
 
+import { useSession } from "@/lib/auth-client";
 import { useState } from "react";
 import {
   IoLocationOutline,
@@ -9,12 +10,52 @@ import {
   IoAdd,
   IoRemove,
 } from "react-icons/io5";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 const FacilityDetails = ({ facilityDetails }) => {
+  const {data, isPending} = useSession()
+  const user = data?.user;
+  
   const [date, setDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [duration, setDuration] = useState(1);
+  if(isPending){
+    return <span className="loading loading-ring loading-lg"></span>
+  }
 
+  const handleBooking = async () => {
+    const bookingData = {
+      userId : user?.id,
+      userName: user?.name,
+      userEmail: user?.email,
+      userImage: user?.image,
+      facilityName: facilityDetails.name,
+      facilityID: facilityDetails._id,
+      facilityImage: facilityDetails.image,
+      facilityLocation: facilityDetails.location,
+      facilityPrice: facilityDetails.price,
+      facilitySport: facilityDetails.sport,
+      facilityCapacity: facilityDetails.capacity,
+      bookingDate: new Date(date),
+      bookingTime: selectedTime,
+      bookingDuration: duration
+    }
+    const res = await fetch('http://localhost:5000/booking',{
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body : JSON.stringify(bookingData)
+    })
+    const data = await res.json();
+    toast.success("Booked successfully", {
+        position: "top-center",
+        theme: "dark",
+        autoClose: 1500,
+        transition: Bounce,
+      });
+  }
+  
   const timeSlots = [
     "08:00 AM",
     "10:00 AM",
@@ -165,7 +206,7 @@ const FacilityDetails = ({ facilityDetails }) => {
               <span className="text-white font-semibold">৳{totalPrice}</span>
             </div>
 
-            <button
+            <button onClick={handleBooking}
               className="
               w-full
               bg-green-400
@@ -174,7 +215,7 @@ const FacilityDetails = ({ facilityDetails }) => {
               py-3
               rounded-xl
               hover:bg-green-300
-              transition
+              transition cursor-pointer
               "
             >
               Book Now
@@ -182,6 +223,7 @@ const FacilityDetails = ({ facilityDetails }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

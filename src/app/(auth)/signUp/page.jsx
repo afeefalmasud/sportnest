@@ -45,7 +45,6 @@ const SignUpPage = () => {
         theme: "dark",
         autoClose: 1500,
         transition: Bounce,
-        onClose: () => router.push("/signin"),
       });
     }
   };
