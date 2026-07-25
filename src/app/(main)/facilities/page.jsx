@@ -12,7 +12,7 @@ const facilitespage = async() => {
   });
   const facilities = await res.json();
   return (
-    <div className="min-h-screen bg-[#040C13] px-5 py-30">
+    <div className="min-h-screen bg-[#040C13] px-5  py-40 md:py-30">
       <div className="container mx-auto">
         <div className="mb-10">
           <h2 className={`${spaceGrotesk.className} text-5xl font-bold text-[#EFF6FB]`}>All facilities</h2>

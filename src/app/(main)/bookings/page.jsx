@@ -3,6 +3,14 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Image from "next/image";
 import { MdLocationOn } from "react-icons/md";
+import { Space_Grotesk } from "next/font/google";
+
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
+
 
 const BookingPage = async () => {
   const session = await auth.api.getSession({
@@ -23,11 +31,10 @@ const BookingPage = async () => {
   );
 
   return (
-    <section className="min-h-screen bg-[#040C13] px-5 py-30">
-      <div className="max-w-6xl mx-auto space-y-8">
-
-        <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">
+    <section className="min-h-screen bg-[#040C13] px-5 py-40 md:py-30">
+      <div className="container mx-auto space-y-8">
+        <div className="mb-10">
+          <h1 className={`${spaceGrotesk.className} text-5xl font-bold text-[#EFF6FB]`}>
             My Bookings
           </h1>
           <p className="text-sm text-gray-400 mt-1">

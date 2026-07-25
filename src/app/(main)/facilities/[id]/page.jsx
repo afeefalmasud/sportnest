@@ -8,7 +8,7 @@ const detailsPage = async ({ params }) => {
   const facilityDetails = await res.json();
 
   return (
-    <div className="bg-[#040C13] min-h-screen px-5 py-30">
+    <div className="bg-[#040C13] min-h-screen px-5  py-40 md:py-30">
         <div className="container mx-auto">
           <Link
             href="/facilities"
