@@ -1,3 +1,4 @@
+import { BookingDelete } from "@/components/bookingDelete/BookingDelete";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Image from "next/image";
@@ -24,8 +25,7 @@ const BookingPage = async () => {
   return (
     <section className="min-h-screen bg-[#040C13] px-5 py-30">
       <div className="max-w-6xl mx-auto space-y-8">
-        
-        {/* Heading */}
+
         <div>
           <h1 className="text-3xl font-bold text-white tracking-tight">
             My Bookings
@@ -35,7 +35,6 @@ const BookingPage = async () => {
           </p>
         </div>
 
-        {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="bg-[#141a21] border border-[#1e2631] rounded-xl p-5 shadow-sm">
             <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">
@@ -45,8 +44,6 @@ const BookingPage = async () => {
               {bookings.length}
             </h2>
           </div>
-
-         
 
           <div className="bg-[#141a21] border border-[#1e2631] rounded-xl p-5 shadow-sm">
             <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">
@@ -58,7 +55,6 @@ const BookingPage = async () => {
           </div>
         </div>
 
-        {/* Bookings Table */}
         <div className="bg-[#141a21] border border-[#1e2631] rounded-xl overflow-hidden shadow-xl">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
@@ -80,7 +76,6 @@ const BookingPage = async () => {
                     key={booking._id}
                     className="hover:bg-[#1a222c]/50 transition-colors"
                   >
-                    {/* Facility */}
                     <td className="py-4 px-6">
                       <div className="flex items-center gap-3">
                         <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-[#1e2631] flex-shrink-0">
@@ -103,39 +98,31 @@ const BookingPage = async () => {
                       </div>
                     </td>
 
-                    {/* Date */}
                     <td className="py-4 px-6 text-gray-300 font-medium">
                       {new Date(booking.bookingDate).toISOString().split("T")[0]}
                     </td>
 
-                    {/* Start Time */}
                     <td className="py-4 px-6 text-gray-300 font-medium">
                       {booking.bookingTime}
                     </td>
 
-                    {/* Duration */}
                     <td className="py-4 px-6 text-gray-300 font-medium">
                       {booking.bookingDuration}{" "}
                       {typeof booking.bookingDuration === "number" ? "hrs" : "Hour"}
                     </td>
 
-                    {/* Total Price */}
                     <td className="py-4 px-6 font-bold text-emerald-400">
                       ৳{booking.facilityPrice}
                     </td>
 
-                    {/* Status */}
                     <td className="py-4 px-6">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
                         Pending
                       </span>
                     </td>
 
-                    {/* Cancel Action */}
                     <td className="py-4 px-6 text-right">
-                      <button className="px-3.5 py-1.5 text-xs font-medium text-red-400 hover:text-white bg-red-500/10 hover:bg-red-600 rounded-lg border border-red-500/20 transition-all duration-150">
-                        Cancel
-                      </button>
+                      <BookingDelete bookingId={booking._id}></BookingDelete>
                     </td>
                   </tr>
                 ))}
@@ -144,7 +131,6 @@ const BookingPage = async () => {
           </div>
         </div>
 
-        {/* Empty State */}
         {bookings.length === 0 && (
           <div className="bg-[#141a21] border border-[#1e2631] rounded-xl p-16 text-center shadow-xl">
             <h2 className="text-xl font-semibold text-white">
