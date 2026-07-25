@@ -7,7 +7,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const facilitespage = async() => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facility`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facility`,{
+    cache: 'no-store',
+  });
   const facilities = await res.json();
   return (
     <div className="min-h-screen bg-[#040C13] px-5 py-30">

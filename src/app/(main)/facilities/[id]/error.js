@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { IoArrowBack, IoWarningOutline } from "react-icons/io5";
 
-export const ErrorPage = () => {
+export default function ErrorPage({ error, reset }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#040C13] px-6">
       <div className="text-center max-w-md">
@@ -27,7 +27,7 @@ export const ErrorPage = () => {
 
         <div className="mt-8 flex justify-center gap-4">
           <button
-            onClick={() => window.location.reload()}
+            onClick={() => reset()}
             className="rounded-xl bg-[#51D75E] px-6 py-3 font-semibold text-[#040C13] transition hover:scale-105"
           >
             Try Again
