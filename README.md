@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏟️ SportNest - Sports Facility Booking Management System
 
-## Getting Started
 
-First, run the development server:
+## 📌 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**SportNest** is a modern sports facility booking management platform where users can explore, book, and manage sports facilities easily. Facility owners can add, update, and manage their facilities, while users can book available slots for their preferred sports activities.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The goal of SportNest is to make sports facility management simple, efficient, and accessible through a clean and responsive web experience.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Live Website
 
-## Learn More
+🔗 Live Link: https://sportnest-pi.vercel.app/
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 👤 Authentication
+- Secure user authentication using BetterAuth
+- User registration and login
+- User session management
+- Protected routes for authenticated users
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🏟️ Facility Management
+- Browse available sports facilities
+- View detailed facility information
+- Add new facilities
+- Update existing facilities
+- Delete facilities
+- Manage facilities created by users
 
-## Deploy on Vercel
+### 📅 Booking System
+- Book sports facilities
+- Store booking information
+- View personal bookings
+- Cancel bookings
+- Track booking status
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🎨 UI/UX
+- Fully responsive design
+- Modern dark sports-themed interface
+- Mobile, tablet, and desktop support
+- Smooth animations and interactive components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+- Next.js 16
+- React 19
+- Tailwind CSS
+- DaisyUI
+- HeroUI
+- React Icons
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- MongoDB Driver
+
+### Authentication
+- BetterAuth
+
+### Tools
+- Git & GitHub
+- Vercel
+- VS Code
+
+
+
+
