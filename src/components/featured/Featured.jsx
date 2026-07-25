@@ -8,7 +8,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const Featured = async() => {
-    const res = await fetch('http://localhost:5000/facility');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facility`);
     const facilities = await res.json();
     const featuredFacilties = facilities.filter(facility => facility.featured=== true);
     console.log(featuredFacilties);

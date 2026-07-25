@@ -14,7 +14,7 @@ const FormAdd = () => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const addFacility = Object.fromEntries(formData.entries());
-        const res = await fetch('http://localhost:5000/facility',{
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facility`,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

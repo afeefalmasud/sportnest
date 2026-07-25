@@ -7,7 +7,7 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 const ManageDelete = ({facility}) => {
     const router = useRouter();
     const handleDelete = async() =>{
-        const res = await fetch(`http://localhost:5000/facility/${facility._id}`,{
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facility/${facility._id}`,{
             method: 'Delete',
             headers: {
                 'content-type': 'application/json'
